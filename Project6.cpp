@@ -255,12 +255,12 @@ int strCompare2(char* str1, char* str2) {
  */
 
 int solveMazeRec(int row, int col) {
-    if(row > MAZE_SIZE-1 || col > MAZE_SIZE-1){
+    if(row > MATRIX_SIZE || col > MATRIX_SIZE){
         return false;
     }
-    if(row == MAZE_SIZE-1){
+    if(row == MATRIX_SIZE){
         printf("%d\n", row);
-        printf("%d\n", MAZE_SIZE-1);
+        printf("%d\n", MATRIX_SIZE-1);
         return true;
     }
     if(maze[row][col]==1 || maze[row][col]==2){
@@ -414,7 +414,28 @@ void solveMazeIt(int row, int col) {
  * this optimal collection of coins.
  */
 Martian change(int cents) {
-	return Martian{}; // delete this line, it's broken. Then write the function properly!
+    Martian m1 = {0,0,0};
+
+    if(cents == 0 || cents < 0){
+        return m1;
+    }
+    if(cents > 12){
+        m1.dodeks += change(cents-12).dodeks;
+        m1.dodeks++;
+        cents -= 12;
+    }
+    if(cents > 5){
+        m1.nicks += change(cents - 5).nicks;
+        m1.nicks++;
+        cents -= 5;
+    }
+    if(cents > 1){
+        m1.pennies += change(cents - 1).pennies;
+        m1.pennies++;
+        cents -= 1;
+    }
+
+    return m1;
 }
 
 /*

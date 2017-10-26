@@ -321,6 +321,7 @@ int main(void) {
 	srand(magic_number);
 	makeMaze();
 	recodeMaze();
+    printMaze();
 	printf("recursive solution to the maze\n");
 	solveMazeRec(0, start_col);	
 	printMaze();
@@ -334,7 +335,7 @@ int main(void) {
 	printMaze();
 
 
-	*//* test Martian *//*
+	*//* test Martian */
 	Martian change1 = change(15);
 	printf("change 1 should be 0d, 3n, 0p and is: %dd %dn %dp\n", change1.dodeks, change1.nicks, change1.pennies);
 
@@ -347,7 +348,7 @@ int main(void) {
 	Martian change4 = change(25);
 	printf("change 4 should be 2d, 0n, 1p and is: %dd %dn %dp\n", change4.dodeks, change4.nicks, change4.pennies);
 
-	*//* A very simple and obvious test of the general form of Martian
+	/* A very simple and obvious test of the general form of Martian
 	 * be sure and test your solution more thoroughly!!!! *//*
 	change4 = change(25, 5, 12);
 	printf("change 4 should be 2d, 0n, 1p and is: %dd %dn %dp\n", change4.dodeks, change4.nicks, change4.pennies);*/
