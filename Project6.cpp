@@ -2,10 +2,10 @@
  * Project6.c
  * Recursion
  * Fall 2017
- * My Name
- * My UT EID
+ * Jost Luebbe
+ * jl64249
  * My TA
- * My Section Time
+ * Tues/Thurs 11-12:30
  *
  *
  */
@@ -80,7 +80,23 @@ int minRec2(int x[], int n) {
  * accuracy.
  */
 double sqrtIt(double x, double low_guess, double high_guess) {
-	return 0;
+    double my_guess = 0;
+    double add_val = 1;
+    while(true){
+        while(my_guess*my_guess<high_guess){
+            my_guess+=add_val;
+        }
+        if(my_guess*my_guess==x){
+            return my_guess;
+        }
+        if(my_guess*my_guess>low_guess){
+            my_guess -= add_val;
+            add_val /= 10;
+        }
+        if(add_val < .000000000000001){
+            return my_guess;
+        }
+    }
 }
 
 /*
@@ -96,7 +112,14 @@ double sqrtIt(double x, double low_guess, double high_guess) {
  * accuracy.
  */
 double sqrtRec(double x, double low_guess, double high_guess) {
-	return 0;
+    double half = (low_guess+high_guess)/2;
+    if(half*half == x || high_guess-low_guess<.000000000000001){
+        return half;
+    }
+    if(half*half > x){
+        return sqrtRec(x, low_guess, half);
+    }
+    return sqrtRec(x, half, high_guess);
 }
 
 
@@ -115,7 +138,18 @@ double sqrtRec(double x, double low_guess, double high_guess) {
  */
 
 int strCompare(char* str1, char* str2) {
-	return 0;
+    if(*str1==0 && *str2==0){
+        return 0;
+    }
+    if(*str1 < *str2){
+        return -1;
+    }
+    if(*str1 > *str2){
+        return 1;
+    }
+    else{
+        return strCompare(str1+1, str2+1);
+    }
 }
 
 /*
@@ -141,7 +175,24 @@ int whatLetter(char c) {
  * once again, you can only use recursion, no loops
  */
 int strCompare2(char* str1, char* str2) {
-	return 0;
+    if(*str1==0 && *str2==0){
+        return 0;
+    }
+    if(whatLetter(*str1)<0){
+        return strCompare2(str1+1, str2);
+    }
+    if(whatLetter(*str2)<0){
+        return strCompare2(str1, str2+1);
+    }
+    if(whatLetter(*str1) < whatLetter(*str2)){
+        return -1;
+    }
+    if(whatLetter(*str1) > whatLetter(*str2)){
+        return 1;
+    }
+    else{
+        return strCompare2(str1+1, str2+1);
+    }
 }
 
 
@@ -204,7 +255,32 @@ int strCompare2(char* str1, char* str2) {
  */
 
 int solveMazeRec(int row, int col) {
-	return 0;
+    if(row > MAZE_SIZE-1 || col > MAZE_SIZE-1){
+        return false;
+    }
+    if(row == MAZE_SIZE-1){
+        printf("%d\n", row);
+        printf("%d\n", MAZE_SIZE-1);
+        return true;
+    }
+    if(maze[row][col]==1 || maze[row][col]==2){
+        return false;
+    }
+    maze[row][col]= 2;
+    if(solveMazeRec(row+1, col)==true){
+        return true;
+    }
+    if(solveMazeRec(row, col+1)==true){
+        return true;
+    }
+    if(solveMazeRec(row-1, col)==true){
+        return true;
+    }
+    if(solveMazeRec(row, col-1)==true){
+        return true;
+    }
+    maze[row][col] = 0;
+	return false;
 }
 
 
