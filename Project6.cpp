@@ -20,7 +20,14 @@
  * there are n elements in x[] (x[0].. x[n-1])
  */
 int minIt(int x[], int n) {
-	return 0;
+	int lowest = x[0];
+	int i;
+	for(i=1;i<n;i++){
+		if(x[i]<lowest){
+			lowest = x[i];
+		}
+	}
+	return lowest;
 }
 
 /* return the smallest of the elements in array x[]
@@ -29,7 +36,12 @@ int minIt(int x[], int n) {
  * use an "n-1" type of decomposition
  */
 int minRec1(int x[], int n) {
-	return 0;
+	if(n==1){
+		return x[0];
+	}
+	int next = minRec1(x, n-1);
+
+	return (x[n-1] < next)? x[n-1] : next;
 }
 
 /*
@@ -40,7 +52,18 @@ int minRec1(int x[], int n) {
  * use an "n / 2" type of decomposition
  */
 int minRec2(int x[], int n) {
-	return 0;
+    if(n==1){
+        return x[0];
+    }
+    else if(n==0){
+        return x[0];
+    }
+    else{
+        int s1 = minRec2(x, n/2);
+        int s2 = minRec1(x + n/2, n/2);
+
+        return (s1<s2)? s1: s2;
+    }
 }
 
 
