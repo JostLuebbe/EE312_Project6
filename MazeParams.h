@@ -20,7 +20,7 @@
  * MAZE_SIZE (MATRIX_SIZE will change proportionately).  My maze
  * generator uses MAZE_SIZE.
  */
-#define MAZE_SIZE 20
+#define MAZE_SIZE 12
 #define MATRIX_SIZE (2 * MAZE_SIZE + 1)
 
 extern int maze[MATRIX_SIZE][MATRIX_SIZE];

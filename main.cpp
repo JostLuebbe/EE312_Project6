@@ -240,12 +240,15 @@ int main(void) {
 	printf("now the smallest is %d\n", minRec2(a, len));
 	
 	 /*test sqrt*/
-	printf("the sqrt of 25 is %.16g\n", sqrtIt(25.0, 0, 25.0));
+/*	printf("the sqrt of 25 is %.16g\n", sqrtIt(25.0, 0, 25.0));
 	printf("the sqrt of 26 is %.16g\n", sqrtIt(26.0, 0, 26.0));
 	printf("the sqrt of 2 is %.16g\n", sqrtIt(2.0, 0, 2.0));
+    printf("the sqrt of 8 is %.16g\n", sqrtIt(8.0, 2.5, 3.0));*/
 	printf("the sqrt of 25 is %.16g\n", sqrtRec(25.0, 0, 25.0));
 	printf("the sqrt of 26 is %.16g\n", sqrtRec(26.0, 0, 26.0));
 	printf("the sqrt of 2 is %.16g\n", sqrtRec(2.0, 0, 2.0));
+    printf("the sqrt of 8 is %.16g\n", sqrtRec(8.0, 2.5, 3.0));
+    printf("the sqrt of 4 is %.16g\n", sqrtRec(4.0, 1.999999, 2.11111));
 
 	 /*test strCompare*/
 	char* s1; char* s2;
@@ -374,11 +377,14 @@ int main(void) {
 	Martian change9 = change(27);
 	printf("change 9 should be 1d, 3n, 0p and is: %dd %dn %dp\n", change9.dodeks, change9.nicks, change9.pennies);
 
-	Martian change10 = change(100);
-	printf("change 10 should be 2d, 3n, 0p and is: %dd %dn %dp\n", change10.dodeks, change10.nicks, change10.pennies);
+	Martian change10 = change(50);
+	printf("change 10 should be 4d, 0n, 2p and is: %dd %dn %dp\n", change10.dodeks, change10.nicks, change10.pennies);
 
 	/* A very simple and obvious test of the general form of Martian
 	 * be sure and test your solution more thoroughly!!!! */
 	Martian change21 = change(25, 5, 12);
 	printf("change 21 should be 2d, 0n, 1p and is: %dd %dn %dp\n", change21.dodeks, change21.nicks, change21.pennies);
+
+    Martian change22 = change(13, 6, 7);
+    printf("change 22 should be 1d, 0n, 0p and is: %dd %dn %dp\n", change22.dodeks, change22.nicks, change22.pennies);
 }
