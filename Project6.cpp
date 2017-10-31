@@ -36,9 +36,9 @@ int minIt(int x[], int n) {
  * use an "n-1" type of decomposition
  */
 int minRec1(int x[], int n) {
-	if(n==1){
+	if(n==1)
 		return x[0];
-	}
+
 	int next = minRec1(x, n-1);
 
 	return (x[n-1] < next)? x[n-1] : next;
@@ -60,7 +60,7 @@ int minRec2(int x[], int n) {
     }
     else{
         int s1 = minRec2(x, n/2);
-        int s2 = minRec1(x + n/2, n/2);
+        int s2 = minRec2(x + (n/2), n/2);
 
         return (s1<s2)? s1: s2;
     }
@@ -326,7 +326,6 @@ void adjacentCell(int row, int col, int dir, int* trow, int* tcol) {
 	}
 }
 
-
 /* 
  * return false if there is a wall in the square for row and col
  * return true if it's not a wall.
@@ -448,14 +447,14 @@ Martian change(int cents) {
 Martian change(int cents, int nick_val, int dodek_val) {
     Martian m1 = {0,0,0};
     Martian m2 = {0,0,0};
-    Martian final;
+    Martian temp;
 
     if(cents > (dodek_val-1)){
         m1.dodeks++;
-        final = change(cents-dodek_val);
-        m1.dodeks += final.dodeks;
-        m1.nicks = final.nicks;
-        m1.pennies = final.pennies;
+        temp = change(cents-dodek_val, nick_val, dodek_val);
+        m1.dodeks += temp.dodeks;
+        m1.nicks = temp.nicks;
+        m1.pennies = temp.pennies;
     }
     else{
         m1.nicks = cents/nick_val;

@@ -224,19 +224,22 @@ void recodeMaze(void) {
 	
 
 int main(void) {
-/*	const int magic_number = 13017;
+	const int magic_number = 13017;
 
-	*//* test min *//*
-	int a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-	printf("the smallest of the first 10 natural numbers is: %d\n", minIt(a, 10));
-	printf("the smallest of the first 10 natural numbers is: %d\n", minRec1(a, 10));
-	printf("the smallest of the first 10 natural numbers is: %d\n", minRec2(a, 10));
-	a[3] = -1;
-	printf("now the smallest is %d\n", minIt(a, 10));
-	printf("now the smallest is %d\n", minRec1(a, 10));
-	printf("now the smallest is %d\n", minRec2(a, 10));
+	 /*test min*/
+	int a[] = {444, 641, 6782, 4563, 444, 2355, 3456, 767, 2438, 9532, 1340, 325423, 444};
+    int len = sizeof(a)/sizeof(a[0]);
+    //int a[] = {-8, 0, -8};
+    //printf("%d\n", sizeof(a)/sizeof(a[0]));
+	printf("the smallest of the first 10 natural numbers is: %d\n", minIt(a, len));
+	printf("the smallest of the first 10 natural numbers is: %d\n", minRec1(a, len));
+	printf("the smallest of the first 10 natural numbers is: %d\n", minRec2(a, len));
+
+	printf("now the smallest is %d\n", minIt(a, len));
+	printf("now the smallest is %d\n", minRec1(a, len));
+	printf("now the smallest is %d\n", minRec2(a, len));
 	
-	*//* test sqrt *//*
+	 /*test sqrt*/
 	printf("the sqrt of 25 is %.16g\n", sqrtIt(25.0, 0, 25.0));
 	printf("the sqrt of 26 is %.16g\n", sqrtIt(26.0, 0, 26.0));
 	printf("the sqrt of 2 is %.16g\n", sqrtIt(2.0, 0, 2.0));
@@ -244,7 +247,7 @@ int main(void) {
 	printf("the sqrt of 26 is %.16g\n", sqrtRec(26.0, 0, 26.0));
 	printf("the sqrt of 2 is %.16g\n", sqrtRec(2.0, 0, 2.0));
 
-	*//* test strCompare *//*
+	 /*test strCompare*/
 	char* s1; char* s2;
 	s1 = "apple"; s2 = "apricot";
 	if (strCompare(s1, s2) < 0) { 
@@ -295,7 +298,7 @@ int main(void) {
 		printf("oops, \"%s\" should be greater than \"%s\"\n", s1, s2);
 	}
 
-	*//* test strCompare2 *//*
+	 /*test strCompare2*/
 	s1 = "apple"; s2 = "Apricot";
 	if (strCompare2(s1, s2) < 0) { 
 		printf("\"%s\" is less than \"%s\", very good\n", s1, s2);
@@ -317,25 +320,32 @@ int main(void) {
 		printf("oops, \"%s\" should be greater than \"%s\"\n", s1, s2);
 	}
 
-	*//* test maze *//*
+	 /*test maze*/
 	srand(magic_number);
 	makeMaze();
 	recodeMaze();
-    printMaze();
-	printf("recursive solution to the maze\n");
+	printf("recursive solution to the maze 1\n");
 	solveMazeRec(0, start_col);	
 	printMaze();
-	printf("\n\n\n");*/
-	
+	printf("\n\n\n");
+
+    srand(2);
+    makeMaze();
+    recodeMaze();
+    printf("recursive solution to the maze 2\n");
+    solveMazeRec(0, start_col);
+    printMaze();
+    printf("\n\n\n");
+
 /*	printf("iterative solution to the maze\n");
 	srand(magic_number);
 	makeMaze();
 	recodeMaze();
 	solveMazeIt(0, start_col);
-	printMaze();
+	printMaze();*/
 
 
-	*//* test Martian */
+	 /*test Martian*/
 
 	Martian change1 = change(15);
     printf("change 1 should be 0d, 3n, 0p and is: %dd %dn %dp\n", change1.dodeks, change1.nicks, change1.pennies);
