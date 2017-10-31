@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/c/Users/jostl/Documents/GitHub Repository/EE312_Project6/Project6.cpp" "/cygdrive/c/Users/jostl/Documents/GitHub Repository/EE312_Project6/cmake-build-debug/CMakeFiles/Project6.dir/Project6.cpp.o"
-  "/cygdrive/c/Users/jostl/Documents/GitHub Repository/EE312_Project6/main.cpp" "/cygdrive/c/Users/jostl/Documents/GitHub Repository/EE312_Project6/cmake-build-debug/CMakeFiles/Project6.dir/main.cpp.o"
+  "/cygdrive/c/Users/jostl/Documents/GitHub/EE312_Project6/Project6.cpp" "/cygdrive/c/Users/jostl/Documents/GitHub/EE312_Project6/cmake-build-debug/CMakeFiles/Project6.dir/Project6.cpp.o"
+  "/cygdrive/c/Users/jostl/Documents/GitHub/EE312_Project6/main.cpp" "/cygdrive/c/Users/jostl/Documents/GitHub/EE312_Project6/cmake-build-debug/CMakeFiles/Project6.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

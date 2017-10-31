@@ -259,8 +259,6 @@ int solveMazeRec(int row, int col) {
         return false;
     }
     if(row == MATRIX_SIZE){
-        printf("%d\n", row);
-        printf("%d\n", MATRIX_SIZE-1);
         return true;
     }
     if(maze[row][col]==1 || maze[row][col]==2){
@@ -415,27 +413,28 @@ void solveMazeIt(int row, int col) {
  */
 Martian change(int cents) {
     Martian m1 = {0,0,0};
+    Martian m2 = {0,0,0};
+    Martian temp;
 
-    if(cents == 0 || cents < 0){
+    if(cents>11){
+        m1.dodeks++;
+        temp = change(cents-12);
+        m1.dodeks += temp.dodeks;
+        m1.nicks = temp.nicks;
+        m1.pennies = temp.pennies;
+    }
+    else{
+        m1.nicks = cents/5;
+        m1.pennies = cents%5;
+    }
+
+    m2.nicks = cents/5;
+    m2.pennies = cents%5;
+
+    if((m1.dodeks+m1.nicks+m1.pennies)<(m2.dodeks+m2.nicks+m2.pennies)){
         return m1;
     }
-    if(cents > 12){
-        m1.dodeks += change(cents-12).dodeks;
-        m1.dodeks++;
-        cents -= 12;
-    }
-    if(cents > 5){
-        m1.nicks += change(cents - 5).nicks;
-        m1.nicks++;
-        cents -= 5;
-    }
-    if(cents > 1){
-        m1.pennies += change(cents - 1).pennies;
-        m1.pennies++;
-        cents -= 1;
-    }
-
-    return m1;
+    return m2;
 }
 
 /*
@@ -447,7 +446,29 @@ Martian change(int cents) {
  * martian change problem is just as easy as the concrete version 
  */
 Martian change(int cents, int nick_val, int dodek_val) {
-	return Martian{}; // delete this line, it's broken. Then write the function properly!
+    Martian m1 = {0,0,0};
+    Martian m2 = {0,0,0};
+    Martian final;
+
+    if(cents > (dodek_val-1)){
+        m1.dodeks++;
+        final = change(cents-dodek_val);
+        m1.dodeks += final.dodeks;
+        m1.nicks = final.nicks;
+        m1.pennies = final.pennies;
+    }
+    else{
+        m1.nicks = cents/nick_val;
+        m1.pennies = cents%nick_val;
+    }
+
+    m2.nicks = cents/nick_val;
+    m2.pennies = cents%nick_val;
+
+    if((m1.dodeks+m1.nicks+m1.pennies)<(m2.dodeks+m2.nicks+m2.pennies)){
+        return m1;
+    }
+    return m2;
 }
 
 /* 

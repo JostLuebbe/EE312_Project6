@@ -224,9 +224,9 @@ void recodeMaze(void) {
 	
 
 int main(void) {
-	const int magic_number = 13017;
+/*	const int magic_number = 13017;
 
-	/* test min */
+	*//* test min *//*
 	int a[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 	printf("the smallest of the first 10 natural numbers is: %d\n", minIt(a, 10));
 	printf("the smallest of the first 10 natural numbers is: %d\n", minRec1(a, 10));
@@ -236,7 +236,7 @@ int main(void) {
 	printf("now the smallest is %d\n", minRec1(a, 10));
 	printf("now the smallest is %d\n", minRec2(a, 10));
 	
-	/* test sqrt */
+	*//* test sqrt *//*
 	printf("the sqrt of 25 is %.16g\n", sqrtIt(25.0, 0, 25.0));
 	printf("the sqrt of 26 is %.16g\n", sqrtIt(26.0, 0, 26.0));
 	printf("the sqrt of 2 is %.16g\n", sqrtIt(2.0, 0, 2.0));
@@ -244,7 +244,7 @@ int main(void) {
 	printf("the sqrt of 26 is %.16g\n", sqrtRec(26.0, 0, 26.0));
 	printf("the sqrt of 2 is %.16g\n", sqrtRec(2.0, 0, 2.0));
 
-	/* test strCompare */
+	*//* test strCompare *//*
 	char* s1; char* s2;
 	s1 = "apple"; s2 = "apricot";
 	if (strCompare(s1, s2) < 0) { 
@@ -295,7 +295,7 @@ int main(void) {
 		printf("oops, \"%s\" should be greater than \"%s\"\n", s1, s2);
 	}
 
-	/* test strCompare2 */
+	*//* test strCompare2 *//*
 	s1 = "apple"; s2 = "Apricot";
 	if (strCompare2(s1, s2) < 0) { 
 		printf("\"%s\" is less than \"%s\", very good\n", s1, s2);
@@ -317,7 +317,7 @@ int main(void) {
 		printf("oops, \"%s\" should be greater than \"%s\"\n", s1, s2);
 	}
 
-	/* test maze */		
+	*//* test maze *//*
 	srand(magic_number);
 	makeMaze();
 	recodeMaze();
@@ -325,7 +325,7 @@ int main(void) {
 	printf("recursive solution to the maze\n");
 	solveMazeRec(0, start_col);	
 	printMaze();
-	printf("\n\n\n");
+	printf("\n\n\n");*/
 	
 /*	printf("iterative solution to the maze\n");
 	srand(magic_number);
@@ -336,20 +336,39 @@ int main(void) {
 
 
 	*//* test Martian */
+
 	Martian change1 = change(15);
-	printf("change 1 should be 0d, 3n, 0p and is: %dd %dn %dp\n", change1.dodeks, change1.nicks, change1.pennies);
+    printf("change 1 should be 0d, 3n, 0p and is: %dd %dn %dp\n", change1.dodeks, change1.nicks, change1.pennies);
 
-	Martian change2 = change(0);
-	printf("change 2 should be 0d, 0n, 0p and is: %dd %dn %dp\n", change2.dodeks, change2.nicks, change2.pennies);
+    Martian change2 = change(0);
+    printf("change 2 should be 0d, 0n, 0p and is: %dd %dn %dp\n", change2.dodeks, change2.nicks, change2.pennies);
 
-	Martian change3 = change(17);
-	printf("change 3 should be 1d, 1n, 0p and is: %dd %dn %dp\n", change3.dodeks, change3.nicks, change3.pennies);
+    Martian change3 = change(17);
+    printf("change 3 should be 1d, 1n, 0p and is: %dd %dn %dp\n", change3.dodeks, change3.nicks, change3.pennies);
 
-	Martian change4 = change(25);
-	printf("change 4 should be 2d, 0n, 1p and is: %dd %dn %dp\n", change4.dodeks, change4.nicks, change4.pennies);
+    Martian change4 = change(25);
+    printf("change 4 should be 2d, 0n, 1p and is: %dd %dn %dp\n", change4.dodeks, change4.nicks, change4.pennies);
+
+    Martian change5 = change(24);
+    printf("change 5 should be 2d, 0n, 0p and is: %dd %dn %dp\n", change5.dodeks, change5.nicks, change5.pennies);
+
+    Martian change6 = change(23);
+    printf("change 6 should be 1d, 2n, 1p and is: %dd %dn %dp\n", change6.dodeks, change6.nicks, change6.pennies);
+
+    Martian change7 = change(22);
+    printf("change 7 should be 1d, 2n, 0p and is: %dd %dn %dp\n", change7.dodeks, change7.nicks, change7.pennies);
+
+    Martian change8 = change(18);
+    printf("change 8 should be 1d, 1n, 1p and is: %dd %dn %dp\n", change8.dodeks, change8.nicks, change8.pennies);
+
+	Martian change9 = change(27);
+	printf("change 9 should be 1d, 3n, 0p and is: %dd %dn %dp\n", change9.dodeks, change9.nicks, change9.pennies);
+
+	Martian change10 = change(100);
+	printf("change 10 should be 2d, 3n, 0p and is: %dd %dn %dp\n", change10.dodeks, change10.nicks, change10.pennies);
 
 	/* A very simple and obvious test of the general form of Martian
-	 * be sure and test your solution more thoroughly!!!! *//*
-	change4 = change(25, 5, 12);
-	printf("change 4 should be 2d, 0n, 1p and is: %dd %dn %dp\n", change4.dodeks, change4.nicks, change4.pennies);*/
+	 * be sure and test your solution more thoroughly!!!! */
+	Martian change21 = change(25, 5, 12);
+	printf("change 21 should be 2d, 0n, 1p and is: %dd %dn %dp\n", change21.dodeks, change21.nicks, change21.pennies);
 }
